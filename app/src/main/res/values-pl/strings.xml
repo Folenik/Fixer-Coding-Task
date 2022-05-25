@@ -173,5 +173,5 @@
     <string name="currency_ZWL">Dolar Zimbabwe</string>
     <string name="currency_ZMK">Stara kwacha zambijska</string>
     <string name="currency_XDR">Specjalne prawa ciągnienia</string>
-    <string name="header_description">Kurs euro na dzień</string>
+    <string name="header_description">Kurs wymiany euro na dzień</string>
 </resources>
