@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
 }
 
@@ -18,6 +19,11 @@ android {
         versionCode projectVersions.versionCode
         versionName projectVersions.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+
+        buildConfigField 'String', 'SERVER_URL', '"https://api.apilayer.com/fixer/"'
+        buildConfigField 'String', 'API_KEY', '"nSnJAn02IVpmxhAUbEX8vNYGuEpuk2xD"'
     }
 
     buildTypes {
@@ -39,13 +45,47 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Base
     implementation "androidx.core:core-ktx:$libVersions.core"
     implementation "androidx.appcompat:appcompat:$libVersions.appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$libVersions.constraintlayout"
     implementation "com.google.android.material:material:$libVersions.material"
-    implementation "com.google.code.gson:gson:$libVersions.gson"
-    implementation "com.github.bumptech.glide:glide:$libVersions.glide"
 
+    //Retrofit, rxJava
+    implementation "io.reactivex.rxjava3:rxjava:$libVersions.rxjava"
+    implementation "io.reactivex.rxjava3:rxandroid:$libVersions.rxjava"
+    implementation "com.squareup.retrofit2:retrofit:$libVersions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$libVersions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$libVersions.retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$libVersions.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$libVersions.okhttp"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$libVersions.glide"
     annotationProcessor "com.github.bumptech.glide:compiler:$libVersions.glide"
+
+    //ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:$libVersions.extlifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$libVersions.vmlifecycle"
+
+    // Koin
+    implementation "io.insert-koin:koin-android:$libVersions.koin"
+    testImplementation "io.insert-koin:koin-test:$libVersions.koin"
+    testImplementation "io.insert-koin:koin-test-junit4:$libVersions.koin"
+
+    //Databinding
     kapt "com.android.databinding:compiler:$toolVersions.android.compiler"
+
+    //Kotlin stdlib
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$libVersions.stdlib"
+
+    //Recyclerview, fastadapter
+    implementation "com.mikepenz:fastadapter:$libVersions.fastadapter"
+    implementation "com.mikepenz:fastadapter-extensions-paged:$libVersions.fastadapter"
+    implementation "com.mikepenz:fastadapter-extensions-scroll:$libVersions.fastadapter"
+    implementation "androidx.recyclerview:recyclerview:$libVersions.recyclerview"
+
+    //Splashscreen
+    implementation "androidx.core:core-splashscreen:$libVersions.splashscreen"
 }

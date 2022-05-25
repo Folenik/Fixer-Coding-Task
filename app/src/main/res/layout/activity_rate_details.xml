@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkGray"
+        android:padding="@dimen/spacing4">
+
+        <TextView
+            android:id="@+id/header_description"
+            style="@style/FixerBasicText.H4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing8"
+            android:layout_marginTop="@dimen/spacing8"
+            android:layout_marginEnd="@dimen/spacing8"
+            android:hint="@string/header_description"
+            android:text="@string/header_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header_text"
+            style="@style/FixerBasicText.H1"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_name"
+            app:layout_constraintEnd_toEndOf="@id/header_description"
+            app:layout_constraintStart_toStartOf="@id/header_description"
+            app:layout_constraintTop_toBottomOf="@id/header_description" />
+
+        <View
+            android:id="@+id/header_view"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="@dimen/spacing4"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/header_description"
+            app:layout_constraintStart_toStartOf="@id/header_description"
+            app:layout_constraintTop_toBottomOf="@id/header_text" />
+
+
+        <ImageView
+            android:id="@+id/rate_flag"
+            style="@style/Image"
+            android:layout_width="@dimen/spacing48"
+            android:layout_height="@dimen/spacing32"
+            android:layout_marginTop="@dimen/spacing24"
+            android:contentDescription="@string/flag_descripition"
+            app:layout_constraintStart_toStartOf="@id/header_description"
+            app:layout_constraintTop_toBottomOf="@id/header_view" />
+
+        <TextView
+            android:id="@+id/rate_code"
+            style="@style/FixerBasicText.H2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing8"
+            android:hint="@string/default_currency_code"
+            app:layout_constraintBottom_toBottomOf="@id/rate_flag"
+            app:layout_constraintStart_toEndOf="@id/rate_flag"
+            app:layout_constraintTop_toTopOf="@id/rate_flag" />
+
+        <TextView
+            android:id="@+id/rate_name"
+            style="@style/FixerBasicText.H3"
+            android:layout_width="@dimen/wrap_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing68"
+            android:gravity="start"
+            android:hint="@string/default_currency_name"
+            app:layout_constraintBottom_toBottomOf="@id/rate_flag"
+            app:layout_constraintEnd_toStartOf="@id/rate_value"
+            app:layout_constraintStart_toStartOf="@id/rate_code"
+            app:layout_constraintTop_toTopOf="@id/rate_flag" />
+
+        <TextView
+            android:id="@+id/rate_value"
+            style="@style/FixerBasicText.H3.DigiFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing24"
+            android:hint="@string/default_currency_value"
+            app:layout_constraintBottom_toBottomOf="@id/rate_flag"
+            app:layout_constraintEnd_toEndOf="@id/header_description"
+            app:layout_constraintTop_toTopOf="@id/rate_flag" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
